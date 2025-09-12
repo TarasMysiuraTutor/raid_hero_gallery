@@ -1,0 +1,181 @@
+/* Підключаємо шрифти, що імітують стиль RAID */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+.pageContainer {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #0c0a0e; /* Глибокий темний фон */
+    background-image: url('https://www.transparenttextures.com/patterns/crissxcross.png'); /* Легка текстура */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card {
+    width: 380px;
+    height: 650px;
+    box-sizing: border-box;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    /* Фон картки - імітація темного каменю/металу */
+    background: #1a1d23;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 2px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 10px rgba(0,0,0,0.9);
+}
+
+/* === РАМКА В СТИЛІ RAID === */
+.cardFrame {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+    
+    /* Створення складної рамки через border-image */
+    border-style: solid;
+    border-width: 25px;
+    border-image-source: linear-gradient(145deg, #444, #888, #444);
+    border-image-slice: 25;
+    border-image-repeat: round;
+
+    /* Додаємо ефект "внутрішньої тіні" для об'єму */
+    box-shadow: inset 0 0 15px rgba(0,0,0,1);
+}
+
+/* === БАНЕР З РІДКІСНІСТЮ === */
+.headerBanner {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    background: #111;
+    width: 60%;
+    text-align: center;
+    padding: 5px 0;
+    
+    /* Форма банера через clip-path */
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    border-bottom: 3px solid; /* Колір буде залежати від рідкісності */
+}
+
+.rarityText {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* === ЗОБРАЖЕННЯ ГЕРОЯ === */
+.heroImage {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    margin-top: 40px; /* Відступ під банером */
+    z-index: 1;
+}
+.heroImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    
+    /* Плавне зникнення знизу для переходу до тексту */
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+
+/* === ІМ'Я ГЕРОЯ === */
+.heroName {
+    text-align: center;
+    margin-top: -60px; /* Зсув на зображення */
+    z-index: 3;
+    position: relative;
+}
+.heroName h2 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 2.2em;
+    font-weight: 900;
+    text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px currentColor; /* Сильне світіння */
+}
+
+/* === ДЕКОРАТИВНИЙ РОЗДІЛЬНИК === */
+.divider {
+    width: 80%;
+    height: 2px;
+    margin: 15px auto;
+    background: linear-gradient(to right, transparent, #888, transparent);
+    z-index: 3;
+}
+
+
+/* === СТАТИСТИКА === */
+.statsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 15px;
+    padding: 0 25px 25px; /* Забираємо верхній padding */
+    flex-grow: 1;
+    z-index: 2;
+    position: relative;
+}
+.statItem {
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+    padding: 6px 8px;
+    border-radius: 3px;
+    border-left: 3px solid; /* Колір залежить від рідкісності */
+}
+.statItem i, .statItem svg {
+    font-size: 16px;
+    width: 25px;
+    text-align: center;
+    margin-right: 5px;
+    opacity: 0.8;
+}
+.statItem span {
+    width: 40px;
+    color: #ccc;
+    font-size: 0.9em;
+}
+.statItem strong {
+    font-weight: 700;
+    font-size: 1.1em;
+    flex-grow: 1;
+    text-align: right;
+}
+
+/* === КОЛЬОРИ РІДКІСНОСТІ === */
+.legendary .headerBanner, .legendary .statItem { border-color: #FFD700; }
+.legendary .rarityText, .legendary .heroName h2, .legendary .statItem strong { color: #FFD700; }
+.legendary .statItem i, .legendary .statItem svg { color: #FFD700; }
+
+.epic .headerBanner, .epic .statItem { border-color: #a335ee; }
+.epic .rarityText, .epic .heroName h2, .epic .statItem strong { color: #a335ee; }
+.epic .statItem i, .epic .statItem svg { color: #a335ee; }
+
+.rare .headerBanner, .rare .statItem { border-color: #0070dd; }
+.rare .rarityText, .rare .heroName h2, .rare .statItem strong { color: #0070dd; }
+.rare .statItem i, .rare .statItem svg { color: #0070dd; }
+
+.uncommon .headerBanner, .uncommon .statItem { border-color: #1eff00; }
+.uncommon .rarityText, .uncommon .heroName h2, .uncommon .statItem strong { color: #1eff00; }
+.uncommon .statItem i, .uncommon .statItem svg { color: #1eff00; }
+
+.common .headerBanner, .common .statItem { border-color: #a0a0a0; }
+.common .rarityText, .common .heroName h2, .common .statItem strong { color: #a0a0a0; }
+.common .statItem i, .common .statItem svg { color: #a0a0a0; }
+
+.notFound { color: white; font-size: 2rem; text-align: center; margin-top: 50px; }

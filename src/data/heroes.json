@@ -1,0 +1,56 @@
+[
+  {
+    "id": "altan",
+    "name": "Альтан",
+    "title": "Воєвода клану",
+    "rarity": "Legendary",
+    "factionIconUrl": "https://raid.guide/images/factions/Bar_DEF.png",
+    "imageUrl": "https://raid.guide/images/champions/full/Altan.png",
+    "stats": {
+      "hp": 22455,
+      "atk": 859,
+      "def": 1387,
+      "spd": 95,
+      "crate": 15,
+      "cdmg": 50,
+      "res": 40,
+      "acc": 10
+    }
+  },
+  {
+    "id": "madame-serris",
+    "name": "Мадам Серріс",
+    "title": "Доглядачка склепу",
+    "rarity": "Epic",
+    "factionIconUrl": "https://raid.guide/images/factions/DE_MAG.png",
+    "imageUrl": "https://raid.guide/images/champions/full/Madame_Serris.png",
+    "stats": {
+      "hp": 18330,
+      "atk": 1057,
+      "def": 1156,
+      "spd": 101,
+      "crate": 15,
+      "cdmg": 50,
+      "res": 30,
+      "acc": 10
+    }
+  },
+  {
+    "id": "coldheart",
+    "name": "Холодне серце",
+    "title": "Вбивця королів",
+    "rarity": "Rare",
+    "factionIconUrl": "https://raid.guide/images/factions/DE_MAG.png",
+    "imageUrl": "https://raid.guide/images/champions/full/Coldheart.png",
+    "stats": {
+      "hp": 13710,
+      "atk": 1288,
+      "def": 859,
+      "spd": 98,
+      "crate": 15,
+      "cdmg": 57,
+      "res": 30,
+      "acc": 0
+    }
+  }
+]
